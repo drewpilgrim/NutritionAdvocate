@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My App</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.js"></script>
+  <script src="index.js" defer></script>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="index.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <div id="vue-app">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <router-view></router-view>
+
+  </div>
+</body>
+</html>
+
+<template id="home-page">
+  <div class="vue-component">
+
+    <h1>{{ message }}</h1>
+     <a href="/#/signup">Signup</a>
+     <a href="/#/login">Login</a>
+     <a href="/#/logout">Logout</a>
+
+  </div>
+</template>
+
+
+
+
+<template id="signup-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Signup</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>Name:</label> 
+        <input type="text" class="form-control" v-model="username">
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" class="form-control" v-model="email">
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" class="form-control" v-model="password">
+      </div>
+      <div class="form-group">
+        <label>Password confirmation:</label>
+        <input type="password" class="form-control" v-model="passwordConfirmation">
+      </div>
+      <div class="form-group">
+        <label>Age: (Both this and Gender are used for calcualting recommended nutritional value only)</label>
+        <input type="string" class="form-control" v-model="age">
+      </div>
+      <div class="form-group">
+        <label>Gender (M/F):</label>
+        <input type="string" class="form-control" v-model="gender">
+      </div>
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div>
+
+  </div>
+</template>
+
+<template id="login-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Login</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" class="form-control" v-model="email">
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" class="form-control" v-model="password">
+      </div>
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div>
+
+  </div>
+</template>
+
+<template id="about-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>About</h1>
+      <div class="form-group">
+
+      </div>
+    </div>
+
+  </div>
+</template>
+
+<template id="contact-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Contact</h1>
+
+      <div class="form-group">
+  
+      </div>
+    </div>
+
+  </div>
+</template>
+
+<template id="profile-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Welcome to Nutrition Advocate</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>User:</label>
+        <div>{{currentUser.username}}</div>
+      </div>
+
+     <a href="/#/add_requirement">Add a requirement</a>
+     <a href="/#/add_past_meal">Add a past meal</a>
+     <a href="/#/generate_recipe">Generate a recipe</a>
+
+    </div>
+
+  </div>
+</template>
+
+
+<template id="requirement-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Add a requirement</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>User:</label>
+        <div>{{currentUser.username}}</div>
+      </div>
+
+      <p id = "requirementList">
+        <ul>
+          <li v-for="requirement in currentUser.requirements">{{ requirement }}</li>
+        </ul>
+      </p>
+
+      <div id="requirementSelect">
+        <p>
+        Select a requirement
+        <datalist id = "requirementsDataList">
+          <option v-for="requirement in requirementList">{{requirement.name}} </option>
+        </datalist>
+        <select id = "reqSelect" v-model="reqID">
+          <option disabled value="">Please Select an Option</option>
+          <option v-for="requirement in requirementList" v-bind:value="requirement.id">{{requirement.name + " ("+requirement.tag + ")"}}</option>
+        </select>
+       
+        <button class="btn btn-primary" v-on:click="add_requirement(reqID)">Add a Requirement</button>
+        </p>
+      </div>
+
+
+      <div id="back_to_profile">
+        <a href="/#/profile">Back to profile page</a>
+      </div>
+
+    </div>
+
+  </div>
+</template>
+
+
+<template id="past-meal-page">
+  <div class="vue-component">
+  <!-- Multiple Select -->
+    <div class="container">
+      <h1>Add a past meal</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <p>Past Meal List</p>
+      <p id = "pastMealList">
+        <ul>
+          <li v-for="pastMeal in currentUser.past_meals">{{ pastMeal.name }}</a><li>
+        </ul>
+      </p>
+
+
+      <div class="form-group">
+        <label>User:</label>
+        <div>{{currentUser.username}}</div>
+        <a class="btn btn-primary" data-toggle="modal" data-target="#addPMeal">Add a meal you had previously</a>
+      </div>
+
+      <div id="back_to_profile">
+        <a href="/#/profile">Back to profile page</a>
+      </div>
+    </div>
+
+     <div class="modal fade" id="addPMeal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add a Meal</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Meal Name:</label> 
+              <input type="float" class="form-control" v-model="mealName">
+            </div>
+            <div class="form-group">
+              <label>Sodium:</label> 
+              <input type="float" class="form-control" v-model="na">
+            </div>
+            <div class="form-group">
+              <label>Potasium:</label> 
+              <input type="float" class="form-control" v-model="k">
+            </div>
+            <div class="form-group">
+              <label>Cholesterol:</label> 
+              <input type="float" class="form-control" v-model="chole">
+            </div>
+            <div class="form-group">
+              <label>Fatty Acids:</label> 
+              <input type="float" class="form-control" v-model="fatrn">
+            </div>
+            <div class="form-group">
+              <label>Fatty Acids: Saturated:</label> 
+              <input type="float" class="form-control" v-model="fasat">
+            </div>
+            <div class="form-group">
+              <label>Carbohydrate:</label> 
+              <input type="float" class="form-control" v-model="chocdf">
+            </div>
+            <div class="form-group">
+              <label>Fiber:</label> 
+              <input type="float" class="form-control" v-model="fibtg">
+            </div>
+            <div class="form-group">
+              <label>Protein:</label> 
+              <input type="float" class="form-control" v-model="procnt">
+            </div>
+            <div class="form-group">
+              <label>Vitamen C:</label> 
+              <input type="float" class="form-control" v-model="vitc">
+            </div>
+            <div class="form-group">
+              <label>Calcium:</label> 
+              <input type="float" class="form-control" v-model="ca">
+            </div>
+            <div class="form-group">
+              <label>Iron:</label> 
+              <input type="float" class="form-control" v-model="fe">
+            </div>
+            <div class="form-group">
+              <label>Sugar:</label> 
+              <input type="float" class="form-control" v-model="sugar">
+            </div>
+            <div class="form-group">
+              <label>Calories:</label> 
+              <input type="float" class="form-control" v-model="enerc_kcal">
+            </div>
+            <div class="form-group">
+              <label>Fat:</label> 
+              <input type="float" class="form-control" v-model="fat">
+            </div>
+            <div class="form-group">
+              <label>Vitamin A:</label> 
+              <input type="float" class="form-control" v-model="vita_iu">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" v-on:click="createNewPastMeal()" class="btn btn-secondary" data-dismiss="modal">Create a Meal</button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</template>
+
+<template id="recipe-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Recipes</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>User:</label>
+        <div>{{currentUser.username}}</div>
+      </div>
+
+      <p>Recipe List</p>
+      <p id = "recipeList">
+        <ul>
+          <li v-for="recipe in currentUser.recipes"><a v-bind:href="'/#/recipe_detail/' + recipe.yumID" >{{ recipe.name }}</a><li>
+        </ul>
+      </p>
+
+      <button type="button" v-on:click="generate_recipe()">
+        Generate a recipe
+      </button>
+
+      <div id="back_to_profile">
+        <a href="/#/profile">Back to profile page</a>
+      </div>
+
+    </div>
+
+  </div>
+</template>
+
+<template id="recipe-detail-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Recipes</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>User:</label>
+        <div>{{currentUser.username}}</div>
+      </div>
+
+      <p>Recipe Details</p>
+      <p>{{recipe.name}}</p>
+      <button type="button" v-on:click="generate_recipe()">
+        Generate a recipe
+      </button>
+
+      <div id="back_to_profile">
+        <a href="/#/profile">Back to profile page</a>
+      </div>
+
+    </div>
+
+  </div>
+</template>
+

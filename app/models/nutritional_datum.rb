@@ -1,0 +1,2 @@
+class NutritionalDatum < ApplicationRecord
+end
