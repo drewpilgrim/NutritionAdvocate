@@ -63,7 +63,21 @@ var ProfilePage = {
     
 
   },
-  methods: {},
+  methods: {
+    updateUser: function(){
+      axios
+        .get("/users")
+        .then(function(response) {
+          console.log(response.data);
+          this.currentUser = response.data.current_user;
+        }.bind(this)
+        ).catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+          }.bind(this)
+        );
+    }
+  },
   computed: {}
 };
 
@@ -109,7 +123,7 @@ var RequirementPage = {
           }.bind(this)
         );
     },
-      add_requirement: function(id) {
+    add_requirement: function(id) {
       console.log("ID: "+id);
       var params = {
         requirement_id: id,
@@ -127,6 +141,9 @@ var RequirementPage = {
         );
 
         this.updateUser();
+    },
+    delete_requirement: function(id){
+
     }
 
   },
@@ -198,7 +215,19 @@ var PastMealPage = {
           }.bind(this)
         );
         this.updateUser();
-    }
+    },
+    delete_past_meal: function(id){
+        params = {
+          id: id
+        }
+        axios.delete("http://localhost:3000/past_meal", params).then(function(response){
+
+
+        }.bind(this)).catch(function(error){
+         console.log(error);
+         this.errors = error.response.data.errors; 
+        });
+      }
   },
   computed: {}
 };
@@ -271,9 +300,32 @@ var RecipePage = {
 
   },
   methods: {
+    updateUser: function(){
+      axios
+        .get("/users")
+        .then(function(response) {
+          console.log(response.data);
+          this.currentUser = response.data.current_user;
+        }.bind(this)
+        ).catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+          }.bind(this)
+        );
+    },
     generateRandomSeed: function(APICall){
-      var seed = Math.floor(Math.random()*Math.floor(20));
+      var seed = Math.floor(Math.random()*Math.floor(100));
+      if(seed > 50){
+        seed = Math.floor(Math.random()*Math.floor(15));
+        if (seed >= 10){
+          seed = seed - 10;
+        }
+      }else{
+        seed = Math.floor(Math.random()*Math.floor(10)) + Math.floor(Math.random()*Math.floor(10));
+      }
+
       var api = APICall;
+      //Todo: Check if overflow causes problems with the API 
       api += "&maxResult=1&start=" + seed;
       console.log(api)
       return api;
@@ -295,7 +347,7 @@ var RecipePage = {
               this.errors = error.response.data.errors;
             }.bind(this)
           );
-
+          this.updateUser();
     },
     sortNumber: function(a,b) {
     return a - b;
@@ -423,6 +475,18 @@ var RecipePage = {
               this.errors = error.response.data.errors;
             }.bind(this)
           );
+      },
+      delete_recipe: function(id){
+        params = {
+          id: id
+        }
+        axios.delete("http://localhost:3000/recipe", params).then(function(response){
+
+
+        }.bind(this)).catch(function(error){
+         console.log(error);
+         this.errors = error.response.data.errors; 
+        });
       }
   },
 

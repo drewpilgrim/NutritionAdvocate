@@ -22,7 +22,13 @@ class PastMealsController < ApplicationController
 
   end
 
-  def destroy
-
+  def destroy 
+    past_meal = PastMeal.find_by(id: params[:id])
+    if past_meal
+      past_meal.destroy
+      render json: {Message: "Destroyed past meal"}
+    else
+      render json: {Message: "No past meal by that id"}
+    end
   end
 end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/all_users" => "users#index"
   #Receipe Routes
   resources :recipes
+  
 
   #Past_meal Routes 
   resources :past_meals

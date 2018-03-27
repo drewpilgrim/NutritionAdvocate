@@ -24,4 +24,14 @@ class RequirementsController < ApplicationController
       render json: {errors: requirement.errors.full_messages}, status: :unprocessable_entity
     end
   end
+
+  def destroy 
+    requirement = Requirement.find_by(id: params[:id])
+    if requirement
+      requirement.destroy
+      render json: {Message: "Destroyed requirement"}
+    else
+      render json: {Message: "No requirement by that id"}
+    end
+  end
 end
