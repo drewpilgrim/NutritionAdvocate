@@ -247,18 +247,7 @@ var RecipePage = {
           }.bind(this)
         );
 
-        // axios.get("/recipes")
-        //   .then(function(response) {
-        //     console.log(response.data);
-        //     this.recipes = response.data;
-        //   }.bind(this)
-        //   ).catch(
-        //     function(error) {
-        //       this.errors = error.response.data.errors;
-        //     }.bind(this)
-        //   );
-
-           //Get Nutrtional Data
+      //Get Nutrtional Data
       axios
         .get("/nutritional_data")
         .then(function(response) {
@@ -362,11 +351,7 @@ var RecipePage = {
 
     },
     generate_recipe: function(){
-      //API Example Call: http://api.yummly.com/v1/api/recipes?_app_id=46598055&_app_key=3c7da548f3efa79721643dd19d25e1da&q=onion+soup&allowedCourse[]=course^course-Appetizers
-      var appID = "46598055";
-      var appKEY = "3c7da548f3efa79721643dd19d25e1da";
-      var APICall = "http://api.yummly.com/v1/api/recipes?_app_id="+appID + "&_app_key=" + appKEY;
-
+      var APICall = "";
       //Nutritional Requirements
       //Get all past meal requirements. 
       //Get nutritional data needed
@@ -380,78 +365,24 @@ var RecipePage = {
           this.userNData[key] += this.currentUser.past_meals[i][key];
         }
       }
+
+      //Get the Most Needed Nutritional Keys
       modifier = this.nutritionalData["enerc_kcal"]/this.userNData["enerc_kcal"];
-      console.log("Modifier: " + modifier);
-      console.log("NData: ");
-      console.log(this.userNData);
       var sortedKeys = this.sortNutrtionalDebt(this.userNData, modifier)
-      //Most needed nutritional
-        var mostNeededKey = "na";
-        var highestDebt = 0;
-
-        for (var key in this.userNData){
+      
+      //Add most needed nutritional keys to API Call
+        for (var key in sortedKeys){
           var recommended = this.nutritionalData[key];
           var current = this.userNData[key] * modifier
           var debt = recommended - current;
-          if (debt > highestDebt && debt > 0) {
-            highestDebt = 0;
-            mostNeededKey = key;
+          min = (recommended-current)/4;
+          if(min < 0){
+            min = 0;
           }
+          max = (recommended-(current/modifier));
+          APICall += "&nutrition." + key.toUpperCase() +".min="+min+"&nutrition." + key.toUpperCase() + ".max="+max;
         }
 
-        var recommended = this.nutritionalData[mostNeededKey];
-        var current = this.userNData[mostNeededKey] * modifier
-
-        min = (recommended-current)/4;
-        if(min < 0){
-          min = 0;
-        }
-        max = (recommended-(current/modifier));
-        APICall += "&nutrition." + mostNeededKey.toUpperCase() +".min="+min+"&nutrition." + mostNeededKey.toUpperCase() + ".max="+max;
-        //add search_term to query
-
-
-      // if(this.currentUser.past_meals != null){
-      //   this.pastMeals = this.currentUser.past_meals;
-        
-      //   for (var i = 0; i < this.pastMeals.length; i++) {
-      //     for (var key in this.pastMeals[0]) {
-      //       // Adjust to 2000 cal diet
-      //       // Check each nutr val.
-      //       // If below 
-      //       if(key != "name"){
-      //         var needNutrition = false;
-      //         var recommended = this.nutritionalData[key];
-      //         var current = this.userNData[key] * modifier
-      //         if (recommended/current > .5){
-      //           needNutrition = true;
-      //         }
-      //         if(needNutrition){ // certain nutritional values
-      //           searchTerm = key.toUpperCase();
-      //           min = (recommended-current)/4;
-      //           if(min < 0){
-      //             min = 0;
-      //           }
-      //           max = recommended-current;
-      //           APICall += "&nutrition." + searchTerm +".min="+min+"&nutrition." + searchTerm + ".max="+max;
-      //           //add search_term to query
-      //         }
-      //       }
-      //     }
-      //   }
-
-        //Most needed nutritional
-        var mostNeededKey = "na";
-        var highestDebt = 0;
-        for (var key in this.userNData){
-          var recommended = this.nutritionalData[key];
-          var current = this.userNData[key] * modifier
-          var debt = recommended - current;
-          if (debt > highestDebt && debt > 0) {
-            highestDebt = 0;
-            mostNeededKey = key;
-          }
-        }
 
         //Requirements Parsing
         for (var i = 0; i < this.currentUser.requirements.length; i++) {
@@ -465,24 +396,33 @@ var RecipePage = {
           }
         }
 
-        //Remove Beverages
-        // APICall += "&excludedCourse[]=course^course-Beverages"
-        // //Random Seed (Each page 1-10)
-        // APICall = this.generateRandomSeed(APICall);
+        console.log(APICall);
+        // Remove Extra Irrelevant Courses
+        APICall += "&excludedCourse[]=course^course-Beverages"
+        APICall += "&excludedCourse[]=course^course-Condiments and Sauces"
+        APICall += "&excludedCourse[]=course^course-Cocktails"
+        APICall += "&excludedCourse[]=course^course-Side Dishes"
 
-        // //Actually get the data
-        // axios
-        //   .get(APICall)
-        //   .then(function(response) {
-        //     console.log(response.data);
-        //     this.createRecipe(response.data);
-        //   }.bind(this)
-        //   ).catch(
-        //     function(error) {
-        //       console.log(error);
-        //       this.errors = error.response.data.errors;
-        //     }.bind(this)
-        //   );
+        //Random Seed (Each page 1-10)
+        APICall = this.generateRandomSeed(APICall);
+
+        //Actually get the data
+
+        var params = {
+          apiCall: APICall
+        }
+        axios
+          .get("http://localhost:3000/nutritional_data/recipe", {params: params} )
+          .then(function(response) {
+            console.log(response.data);
+            this.createRecipe(response.data);
+          }.bind(this)
+          ).catch(
+            function(error) {
+              console.log(error);
+              this.errors = error.response.data.errors;
+            }.bind(this)
+          );
       }
   },
 
@@ -514,11 +454,13 @@ var RecipeDetailPage = {
             this.errors = error.response.data.errors;
           }.bind(this)
         );
-        var appID = "46598055";
-        var appKEY = "3c7da548f3efa79721643dd19d25e1da";
-        var APICall = "http://api.yummly.com/v1/api/recipe/" + this.id + "?_app_id=" + appID + "&_app_key=" + appKEY;
+
+        var params = {
+          id: this.id
+        }
+        console.log(params);
         axios
-        .get(APICall)
+        .get("http://localhost:3000/nutritional_data/recipe_details", {params: params})
         .then(function(response) {
           console.log(response.data);
           this.recipe = response.data;
@@ -532,14 +474,7 @@ var RecipeDetailPage = {
 
   },
   methods: {
-    generate_recipe: function(){
-      //API Example Call: http://api.yummly.com/v1/api/recipe/Easy-Mexican-Fiesta-Pasta-Salad-2337618?_app_id=46598055&_app_key=3c7da548f3efa79721643dd19d25e1da
-      var appID = "46598055";
-      var appKEY = "3c7da548f3efa79721643dd19d25e1da";
-      // http://api.yummly.com/v1/api/recipe/Easy-Mexican-Fiesta-Pasta-Salad-2337618?_app_id=46598055&_app_key=3c7da548f3efa79721643dd19d25e1da
-      var APICall = "http://api.yummly.com/v1/api/recipe/" + recipeID + "?_app_id=" + appID + "&_app_key=" + appKEY;
-
-      }
+    
   },
   computed: {}
 };

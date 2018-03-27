@@ -18,4 +18,7 @@ Rails.application.routes.draw do
 
   # Nutritional Data
   get "/nutritional_data" => "nutritional_datas#index"
+  get "/nutritional_data/recipe" => "nutritional_datas#get_recipe"
+  get "/nutritional_data/recipe_details" => "nutritional_datas#get_recipe_details"
+
 end
