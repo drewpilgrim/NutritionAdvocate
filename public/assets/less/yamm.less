@@ -1,0 +1,92 @@
+/*===================================================================================*/
+/* Yamm Style
+/*===================================================================================*/
+
+/*!
+ * Yamm!3
+ * Yet another megamenu for Bootstrap 3
+ * 
+ * http://geedmo.github.com/yamm3
+ */
+
+
+.yamm {
+
+    // reset positions 
+    .nav, .collapse, .dropup, .dropdown {
+        position: static;
+    }  
+
+    // propagate menu position under container for fw navbars
+    .container {
+        position: relative;
+    }
+
+    // by default aligns menu to left
+    .dropdown-menu {
+        left: auto;
+    }
+    // ensure a good position
+    .dropdown-menu-right {
+        left: auto;
+        right: 0;
+    }
+
+    // Content with padding 
+    .yamm-content {
+        padding: 20px 30px;
+
+        .product-item{
+            margin-bottom: 0;
+
+            .product-name{
+                > a{
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    // Fullwidth menu
+    .dropdown.yamm-fw .dropdown-menu {
+        left: 0; right: 0;
+    }
+
+    .megamenu-title{
+        font-size: 18px;
+        line-height: 30px;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 25px;
+    }
+
+    .menu-items{
+        list-style: none;
+        padding-left: 20px;
+
+        > li{
+            margin-bottom: 8px;
+
+            > a{
+                color: #FFF;
+                font-size: 14px;
+                line-height: 30px;
+                font-weight: bold;
+                .transition(text-shadow 0.2s ease-in-out);
+
+                &:hover{
+                    text-decoration: none;
+                    border-bottom: 2px solid #fff;
+                    text-shadow: 0 1px 2px rgba(0,0,0,.6);
+                }
+            }
+            &:before{
+                content: "\00a0";
+                width: 5px; 
+                height: 22px; 
+                background-color: lighten(@primary-color, 28.5%);
+                margin-right: 20px;
+            }
+        }
+    }
+}

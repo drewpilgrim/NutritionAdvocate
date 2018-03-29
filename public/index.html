@@ -2,72 +2,329 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My App</title>
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.js"></script>
   <script src="index.js.erb" defer></script>
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Theme -->
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+
+  <title>Nutritional Advocate</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+  <!-- Customizable CSS -->
+  <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="index.css">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="assets/css/green.css">
+  <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="assets/css/owl.carousel.css">
+  <link rel="stylesheet" href="assets/css/owl.transitions.css">
+  <link rel="stylesheet" href="assets/css/animate.min.css">
+
+  <!-- Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Asap:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+  <!-- Icons/Glyphs -->
+  <link rel="stylesheet" href="assets/css/elegant-fonts.css">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/images/favicon.ico">
+
 
 </head>
 <body>
   <div id="vue-app">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+              <header class="header">
+                <div>
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+          <!--=================================LOGO=============================== -->
+                 <div class="logo text-md-center">
+                      <h1>
+                          <a href="index.html">
+                              <svg class="svg-circle" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="286.795px" height="80px" viewBox="0 0 286.795 80">
+                                  <g enable-background="new">
+                                      <path class="primary-color-fill" d="M96.533,52.091v-30.72c0-1.023,0.96-1.536,2.88-1.536h1.68c1.92,0,2.88,0.513,2.88,1.536v12.864
+                                          l0.192,0.048l8.352-13.536c0.352-0.607,1.312-0.912,2.88-0.912h2.256c1.792,0,2.688,0.24,2.688,0.721
+                                          c0,0.287-0.128,0.624-0.384,1.008l-9.264,14.208l10.512,16.128c0.256,0.384,0.384,0.72,0.384,1.008c0,0.48-0.896,0.72-2.688,0.72
+                                          h-2.784c-1.601,0-2.576-0.304-2.928-0.912l-9.024-14.592l-0.192,0.048v13.92c0,1.025-0.96,1.536-2.88,1.536h-1.68
+                                          C97.493,53.627,96.533,53.116,96.533,52.091z"/>
+                                      <path class="primary-color-fill" d="M130.612,52.091V37.403l-9.552-15.408c-0.319-0.544-0.48-0.943-0.48-1.2c0-0.64,1.024-0.96,3.072-0.96
+                                          h2.064c1.567,0,2.527,0.305,2.88,0.912l5.856,10.272l5.904-10.272c0.352-0.607,1.312-0.912,2.88-0.912h1.728
+                                          c2.016,0,3.024,0.32,3.024,0.96c0,0.32-0.144,0.721-0.433,1.2l-9.551,15.552v14.544c0,1.025-0.96,1.536-2.88,1.536h-1.632
+                                          C131.572,53.627,130.612,53.116,130.612,52.091z"/>
+                                  </g>
+                                  <g enable-background="new">
+                                      <path fill="#333333" d="M151.012,51.611v-29.76c0-1.28,0.64-1.92,1.92-1.92h9.504c3.903,0,6.769,0.752,8.593,2.256
+                                          c1.823,1.504,2.735,3.584,2.735,6.24c0,1.6-0.488,3.064-1.464,4.392c-0.977,1.328-2.217,2.297-3.721,2.904l0.049,0.191
+                                          c1.888,0.384,3.439,1.328,4.656,2.832c1.215,1.505,1.824,3.185,1.824,5.04c0,3.137-1.001,5.544-3,7.225
+                                          c-2.001,1.68-5.001,2.52-9,2.52h-10.177C151.651,53.531,151.012,52.892,151.012,51.611z M158.403,33.323h3.313
+                                          c1.408,0,2.504-0.336,3.288-1.008s1.176-1.536,1.176-2.592c0-2.368-1.456-3.553-4.368-3.553h-3.408V33.323z M158.403,47.243h4.705
+                                          c1.407,0,2.495-0.336,3.264-1.008c0.768-0.672,1.152-1.632,1.152-2.88c0-2.496-1.729-3.744-5.185-3.744h-3.937V47.243z"/>
+                                      <path fill="#333333" d="M179.331,42.299V21.371c0-1.023,0.96-1.536,2.88-1.536h1.632c1.92,0,2.881,0.513,2.881,1.536v20.448
+                                          c0,1.696,0.607,3.089,1.823,4.176c1.216,1.089,2.784,1.632,4.704,1.632s3.496-0.543,4.729-1.632
+                                          c1.23-1.087,1.848-2.479,1.848-4.176V21.371c0-1.023,0.96-1.536,2.88-1.536h1.584c1.92,0,2.88,0.513,2.88,1.536v20.928
+                                          c0,3.681-1.217,6.537-3.648,8.568c-2.432,2.032-5.855,3.048-10.271,3.048s-7.84-1.016-10.271-3.048
+                                          C180.547,48.836,179.331,45.979,179.331,42.299z"/>
+                                      <path fill="#333333" d="M213.65,51.611v-30.24c0-1.023,0.96-1.536,2.88-1.536h1.633c1.92,0,2.879,0.513,2.879,1.536v25.872h10.705
+                                          c0.959,0,1.439,0.801,1.439,2.4v1.487c0,1.601-0.48,2.4-1.439,2.4H215.57C214.29,53.531,213.65,52.892,213.65,51.611z"/>
+                                      <path fill="#333333" d="M236.882,51.611v-30.24c0-1.023,0.961-1.536,2.881-1.536h1.632c1.92,0,2.88,0.513,2.88,1.536v25.872h10.704
+                                          c0.96,0,1.44,0.801,1.44,2.4v1.487c0,1.601-0.48,2.4-1.44,2.4h-16.177C237.522,53.531,236.882,52.892,236.882,51.611z"/>
+                                      <path fill="#333333" d="M266.546,52.091V37.403l-9.552-15.408c-0.319-0.544-0.479-0.943-0.479-1.2c0-0.64,1.023-0.96,3.072-0.96
+                                          h2.063c1.567,0,2.527,0.305,2.88,0.912l5.855,10.272l5.904-10.272c0.352-0.607,1.313-0.912,2.881-0.912h1.728
+                                          c2.016,0,3.024,0.32,3.024,0.96c0,0.32-0.145,0.721-0.433,1.2l-9.552,15.552v14.544c0,1.025-0.961,1.536-2.881,1.536h-1.631
+                                          C267.507,53.627,266.546,53.116,266.546,52.091z"/>
+                                  </g>
+                                  <g id="Ellipse_3__x2B__Ellipse_3_copy__x2B__Ellipse_3_copy_2_2_" enable-background="new">
+                                      <g>
+                                          <defs>
+                                              <circle id="SVGID_1_" cx="40.295" cy="39.5" r="38.5"/>
+                                          </defs>
+                                          <clipPath id="SVGID_2_">
+                                              <use xlink:href="#SVGID_1_"  overflow="visible"/>
+                                          </clipPath>
+                                          <circle clip-path="url(#SVGID_2_)" class="logo-fill-1" cx="40.295" cy="39.5" r="38.5"/>
+                                      </g>
+                                      <g>
+                                          <defs>
+                                              <circle id="SVGID_3_" cx="40.295" cy="39.5" r="38.5"/>
+                                          </defs>
+                                          <clipPath id="SVGID_4_">
+                                              <use xlink:href="#SVGID_3_"  overflow="visible"/>
+                                          </clipPath>
+                                          <ellipse clip-path="url(#SVGID_4_)" class="logo-fill-2" cx="41.47" cy="56.527" rx="34" ry="38"/>
+                                      </g>
+                                      <g>
+                                          <defs>
+                                              <circle id="SVGID_5_" cx="40.295" cy="39.5" r="38.5"/>
+                                          </defs>
+                                          <clipPath id="SVGID_6_">
+                                              <use xlink:href="#SVGID_5_"  overflow="visible"/>
+                                          </clipPath>
+                                          <ellipse clip-path="url(#SVGID_6_)" class="logo-fill-3" cx="42.295" cy="58.539" rx="30" ry="25"/>
+                                      </g>
+                                  </g>
+                                  </svg>
+                          </a>
+                      </h1>
+                  </div><!-- /.logo -->
+              <!-- ============================= LOGO : END ========================== -->          </div><!-- /.col -->
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
-    </nav>
+
+
+                    <div class="col-md-5 col-sm-5 col-xs-12">
+          <!-- ======================== BLOCK HEADER LINKS========================= -->
+                              <div class="block-header-links">
+                                <ul class="nav nav-header-link pull-right">
+                                  <li><a href="/#/signup">Signup</a></li>
+                                  <li><a href="/#/login">Login</a></li>
+                                  <li><a href="/#/logout">Logout</a></li>
+                                </ul><!-- /.nav-header-link -->
+                              </div><!-- /.block-header-links --> 
+              <!-- =================== BLOCK HEADER LINKS :END ======================== -->        </div><!-- /.col -->   
+                  </div><!-- /.row -->
+                  
+                </div><!-- /.container -->
+
+            <!-- =================== NAVBAR PRIMARY ============================== -->
+                  <nav class="yamm navbar navbar-primary animate-dropdown" role="navigation">
+                      <div class="container">
+                          <div class="navbar-header">
+                              <button id="btn-navbar-primary-collapse" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-primary-collapse">
+                                  <span class="sr-only">Toggle navigation</span>
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
+                              </button>
+                          </div><!-- /.navbar-header -->
+                          <div class="collapse navbar-collapse" id="navbar-primary-collapse">
+                              <ul class="nav navbar-nav">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="http://localhost:3000/#/profile">Profile</a></li>
+                                <li><a href="http://localhost:3000/#/add_requirement">Add a requirement</a></li>
+                                <li><a href="http://localhost:3000/#/add_past_meal">Add a Past Meal</a></li>
+                                <li><a href="http://localhost:3000/#/generate_recipe">Generate/View Recipes</a></li>
+                              </ul><!-- /.nav -->
+                              
+                          </div><!-- /.collapse navbar-collapse -->
+                      </div><!-- /.container -->
+                  </nav><!-- /.yamm -->
+              <!-- =================== NAVBAR PRIMARY :END ============================== -->
+              </header><!-- /.header -->
+
 
     <router-view></router-view>
 
+     <footer class="footer">
+
+         <div>
+             <div class="row">
+                 <div class="col-md-4 col-sm-12 col-xs-12">
+     <!-- ============================================================= FOLLOW US FOOTER ============================================================= -->
+                     <div class="module widget">
+                         <div class="module-header">
+                             <h4 class="module-title text-md-center">Follow Us</h4>
+                         </div><!-- /.module-header -->
+                         <div class="module-body text-md-center">
+                             <div class="row">
+                                 <div class="col-md-12 col-sm-6">
+                                     <p>Lorem ipsum dolor sit amet</p>
+                                     <ul class="list-social-icons">
+                                         <li><a href="http://facebook.com/transvelo"><span data-icon="&#xe093;"></span></a></li>
+                                         <li><a href="#"><span data-icon="&#xe094;"></span></a></li>
+                                         <li><a href="#"><span data-icon="&#xe095;"></span></a></li>
+                                         <li><a href="#"><span data-icon="&#xe096;"></span></a></li>
+                                         <li><a href="#"><span data-icon="&#xe09b;"></span></a></li>
+                                     </ul><!-- /.list-social-icons -->
+                                 </div><!-- /.col -->
+                                 <div class="col-md-12 col-sm-6">
+                                     <address>
+                                         Lorem ipsum dolor sit amet<br/>
+                                         <strong>KYBully PSD</strong><br/>
+                                         108 ABC, New York, USA <br/>
+                                         (+00)-000-0000-000
+                                     </address>  
+                                 </div><!-- /.col -->
+                             </div><!-- /.row -->
+                         </div><!-- /.module-body -->
+                     </div><!-- /.module -->
+    <!-- ============================================================= FOLLOW US FOOTER : END ============================================================= -->           
+                 </div><!-- /.col -->
+
+                 <div class="col-md-4 col-sm-12 col-xs-12">
+                     <div class="row">
+                         <div class="col-md-12 col-sm-6">
+     <!-- ============================================================= NEWSLETTER FOOTER ============================================================= -->
+                             <div class="module block-newsletter">
+                                 <div class="module-header">
+                                     <h4 class="module-title text-md-center">Newsletter</h4>
+                                 </div><!-- /.module-header -->
+                                 <div class="module-body text-md-center">
+                                     <p>Lorem ipsum dolor sit amet</p>
+                                     <form role="form">
+                                         <div class="input-group">
+                                             <input type="text" class="form-control" placeholder="yourname@email.com" autocomplete="off">
+                                             <span class="input-group-btn">
+                                                 <button class="btn btn-default" type="button"><span data-icon="&#x45;"></span></button>
+                                             </span>
+                                         </div><!-- /input-group -->
+                                     </form>
+                                 </div><!-- /.module-body -->
+                             </div><!-- /.module -->
+     <!-- ============================================================= NEWSLETTER FOOTER : END ============================================================= -->                    
+                        </div><!-- /.col -->
+                        <div class="col-md-12 col-sm-6">
+     <!-- ============================================================= PAYMENTS FOOTER ============================================================= -->
+     <!-- ============================================================= PAYMENTS FOOTER : END ============================================================= -->                   
+                        </div><!-- /.col -->
+                     </div><!-- /.row -->
+                 </div><!-- /.col -->
+
+             </div><!-- /.row -->
+         </div><!-- /.container -->
+
+          <div class="navbar navbar-footer">
+     <!-- ============================================================= NAVBAR FOOTER ============================================================= -->
+             <div class="container text-md-center">
+              <p class="navbar-text pull-right text-md-center copyright-text">copyright &copy; 2018 Drew Pilgrim</p>
+             </div><!-- /.container -->
+     <!-- ============================================================= NAVBAR FOOTER : END ============================================================= -->
+         </div><!-- /.navbar -->
+    
+     </footer>
+
+
   </div>
+
+  
+  <script src="assets/js/jquery-1.11.0.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/bootstrap-select.min.js"></script>
+  <script src="assets/js/bootstrap-hover-dropdown.min.js"></script>
+  <script src="assets/js/bootstrap-slider.js"></script>
+  <script src="assets/js/echo.min.js"></script>
+  <script src="assets/js/jquery.easing-1.3.min.js"></script>
+  <script src="assets/js/flatui-controls.js"></script>
+  <script src="assets/js/owl.carousel.min.js"></script>
+  <script src="assets/js/wow.min.js"></script>
+  <script src="assets/js/scripts.js"></script>
+
 </body>
 </html>
 
 <template id="home-page">
-  <div class="vue-component">
+  <div class="container">
+    <div class="vue-component">
+      <div class="wrapper">
 
-    <h1>{{ message }}</h1>
-     <a href="/#/signup">Signup</a>
-     <a href="/#/login">Login</a>
-     <a href="/#/logout">Logout</a>
+      <div id="hero">
+        <div id="owl-main" class="owl-carousel home-page-carousel height-lg owl-inner-nav owl-ui-lg owl-theme">
+          <div class="item" style="background-image: url(https://images.unsplash.com/photo-1503764654157-72d979d9af2f?ixlib=rb-0.3.5&s=004ac76e65f0b5708b0f04523ea9c6de&auto=format&fit=crop&w=1653&q=80);">
+            <div class="container">
+              <div class="caption vertical-center text-center">
+                <div class="big-text fadeInDown-1" style="opacity: 0;">
+                  Nutritious Meals
+                </div>
+                <div class="fadeInDown-2 hidden-xs text" style="opacity: 0;">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                </div>
+                <div class="button-holder fadeInDown-3" style="opacity: 0;">
+                   
+                </div><!-- /.button-holder -->    
 
-  </div>
+              </div><!-- /.caption --> 
+            </div><!-- /.container --> 
+          </div><!-- /.item -->
+
+
+          <div class="item" style="background-image: url(https://images.unsplash.com/photo-1460306855393-0410f61241c7?ixlib=rb-0.3.5&s=d87994e9265127c6cea87d9ee4b87f18&auto=format&fit=crop&w=1652&q=80);">
+            <div class="container">
+              <div class="caption vertical-center text-center">
+                <div class="big-text fadeInDown-1" style="opacity: 0;">
+                  Easy to Use and Reuse
+                </div>
+                <div class="fadeInDown-2 hidden-xs text" style="opacity: 0;">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                </div>
+                <div class="button-holder fadeInDown-3" style="opacity: 0;">
+                    
+                </div><!-- /.button-holder -->      
+              </div><!-- /.caption -->   
+            </div><!-- /.container --> 
+          </div><!-- /.item -->
+          
+          <div class="item" style="background-image: url(https://images.unsplash.com/photo-1506368083636-6defb67639a7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f6fc8776ae60faebee6b009f9bd2f382&auto=format&fit=crop&w=1834&q=80);">
+            <div class="container">
+              <div class="caption vertical-center text-center">
+                <div class="big-text fadeInDown-1" style="opacity: 0;">
+                  Learn how to cook healthy meals
+                </div>
+                <div class="fadeInDown-2 hidden-xs text" style="opacity: 0;">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                </div>
+                <div class="button-holder fadeInDown-3" style="opacity: 0;">
+                    
+                </div><!-- /.button-holder -->      
+              </div><!-- /.caption -->   
+            </div><!-- /.container --> 
+          </div><!-- /.item -->
+
+        </div><!-- /.owl-carousel -->
+      </div><!-- /#hero -->
+<!-- 
+       <a href="/#/signup">Signup</a>
+       <a href="/#/login">Login</a>
+       <a href="/#/logout">Logout</a> -->
+      </div>
+
+    </div>
+</div>
 </template>
 
 
@@ -168,14 +425,40 @@
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
-      <div class="form-group">
-        <label>User:</label>
-        <div>{{currentUser.username}}</div>
-      </div>
 
-     <a href="/#/add_requirement">Add a requirement</a>
-     <a href="/#/add_past_meal">Add a past meal</a>
-     <a href="/#/generate_recipe">Generate a recipe</a>
+
+     <li><a href="/#/add_requirement">Add a requirement (An allergy, a diet requirement (Vegetarian, etc), or a type of meal)</a></li>
+     <li><a href="/#/add_past_meal">Add a past meal (A previously had meal so we can suggest recipes based on nutrition you are missing)</a></li>
+     <li><a href="/#/generate_recipe">Generate a recipe (Where we calculate what nutrition you are missing and suggest a recipe that fits that criteria)</a></li>
+    
+
+                <div class="col-md-6">
+                    <h3 class="section-title text-md-center">Current User's Nutrition Summary</h3>
+                    <div class="order-box">
+                        <form role="form">
+                            <div class="row">
+                                <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <div class="form-group clearfix">
+                                        <div class="row">
+                                            <div class="col-md-16">
+                                                <div id="requirementSelect">
+                                                        <p>
+                                                        Insert Current User's Nutrition Summary Here
+                                                        </p>
+                                                </div>
+                                            </div><!-- /.col -->
+                                        </div><!-- /.row -->
+                                    </div><!-- /.form-group -->
+                                    
+                                </div><!-- /.col-md-7 -->
+
+
+                            </div><!-- /.row -->
+                        </form>
+                    </div><!-- /.order box -->    
+
+          </div>
+
 
     </div>
 
@@ -187,22 +470,84 @@
   <div class="vue-component">
 
     <div class="container">
-      <h1>Add a requirement</h1>
+
+
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
-      <div class="form-group">
-        <label>User:</label>
-        <div>{{currentUser.username}}</div>
-      </div>
 
-      <p id = "requirementList">
-        <ul>
-          <li v-for="requirement in currentUser.requirements">{{ requirement }}</li>
-        </ul>
-      </p>
+      <h2 class="page-title text-md-center">Requirement Page</h2>
+      <p class="page-subtitle text-md-center">Insert Explanation of Requirements Here:, <strong>consectetur</strong> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim</p>
 
-      <div id="requirementSelect">
+
+      <div class="row product-detail">
+          <div class="col-md-6">
+              <div class="panel-group" id="product-detail-accordion">
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                          <h3 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#product-detail-accordion" href="#collapseDescription">
+                                  Current Requirements
+                                  <span data-icon="&#x50;" class="expand pull-right"></span>
+                                  <span data-icon="&#x4f;" class="contract pull-right"></span>
+                              </a>
+                          </h3><!-- /.panel-title -->
+                      </div><!-- /.panel-heading -->
+                      <div id="collapseDescription" class="panel-collapse collapse in">
+                          <div class="panel-body">
+                              <ul class="list-kybully uppercase">
+                                <p id = "requirementList">
+                                    <li v-for="requirement in currentUser.requirements">{{ requirement.display }}</li>
+                                </p>
+                              </ul>
+                          </div><!-- /.panel-body -->
+                      </div><!-- /.panel-collapse -->
+                  </div><!-- /.panel-default -->
+                 
+              </div><!-- /.panel-group -->            
+          </div>
+
+          <div class="col-md-6">
+              <h3 class="section-title text-md-center">Select Your Requirement</h3>
+              <div class="order-box">
+                  <form role="form">
+                      <div class="row">
+                          <div class="col-md-7 col-sm-7 col-xs-12">
+                              <div class="form-group clearfix">
+                                  <div class="row">
+                                      <div class="col-md-4">
+                                          <div id="requirementSelect">
+                                                  <p>
+                                                  Select
+                                                  <datalist id = "requirementsDataList">
+                                                    <option v-for="requirement in requirementList">{{requirement.name}} </option>
+                                                  </datalist>
+                                                  <select id = "reqSelect" v-model="reqID">
+                                                    <option disabled value="">Please Select an Option</option>
+                                                    <option v-for="requirement in requirementList" v-bind:value="requirement.id">{{requirement.name + " ("+requirement.tag + ")"}}</option>
+                                                  </select>
+                                                 
+                                                  </p>
+                                          </div>
+                                      </div><!-- /.col -->
+                                  </div><!-- /.row -->
+                              </div><!-- /.form-group -->
+                              
+                          </div><!-- /.col-md-7 -->
+
+                          <div class="col-md-7 col-sm-7 col-xs-12">
+                              <div class="form-group form-actions">
+                                                  <button class="btn btn-primary" v-on:click="add_requirement(reqID)">Add this Requirement</button>
+                              </div>
+                          </div><!-- /.col-md-7 -->
+
+                      </div><!-- /.row -->
+                  </form>
+              </div><!-- /.order box -->    
+
+      
+<!-- Old Requirement Adding -->
+<!--       <div id="requirementSelect">
         <p>
         Select a requirement
         <datalist id = "requirementsDataList">
@@ -216,7 +561,7 @@
         <button class="btn btn-primary" v-on:click="add_requirement(reqID)">Add a Requirement</button>
         </p>
       </div>
-
+ -->
 
       <div id="back_to_profile">
         <a href="/#/profile">Back to profile page</a>
@@ -232,7 +577,79 @@
   <div class="vue-component">
   <!-- Multiple Select -->
     <div class="container">
-      <h1>Add a past meal</h1>
+
+
+            <ul>
+              <li class="text-danger" v-for="error in errors">{{ error }}</li>
+            </ul>
+
+            <h2 class="page-title text-md-center">Past Meal Page</h2>
+            <p class="page-subtitle text-md-center">Insert Explanation of Past Meals Here:, <strong>consectetur</strong> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim</p>
+
+
+            <div class="row product-detail">
+                <div class="col-md-6">
+                    <div class="panel-group" id="product-detail-accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#product-detail-accordion" href="#collapseDescription">
+                                        Past Meals
+                                        <span data-icon="&#x50;" class="expand pull-right"></span>
+                                        <span data-icon="&#x4f;" class="contract pull-right"></span>
+                                    </a>
+                                </h3><!-- /.panel-title -->
+                            </div><!-- /.panel-heading -->
+                            <div id="collapseDescription" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <ul class="list-kybully uppercase">
+                                      <p>Past Meal List</p>
+                                      <p id = "pastMealList">
+                                          <li v-for="pastMeal in currentUser.past_meals">{{ pastMeal.name }}</a></li>
+                                      </p>
+                                    </ul>
+                                </div><!-- /.panel-body -->
+                            </div><!-- /.panel-collapse -->
+                        </div><!-- /.panel-default -->
+                       
+                    </div><!-- /.panel-group -->            
+                </div>
+
+                <div class="col-md-6">
+                    <h3 class="section-title text-md-center">Add a Past Meal</h3>
+                    <div class="order-box">
+                        <form role="form">
+                            <div class="row">
+                                <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <div class="form-group clearfix">
+                                        <div class="row">
+                                            <div class="col-md-16">
+                                                <div id="requirementSelect">
+                                                        Please hit the button below and fill out the nutritional data for the previous meal.
+                                                       
+                                                </div>
+                                            </div><!-- /.col -->
+                                        </div><!-- /.row -->
+                                    </div><!-- /.form-group -->
+                                    
+                                </div><!-- /.col-md-7 -->
+
+                                <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <div class="form-group form-actions">
+                                      <a class="btn btn-primary" data-toggle="modal" data-target="#addPMeal">Add a meal you had previously</a>
+                                    </div>
+                                </div><!-- /.col-md-7 -->
+
+                            </div><!-- /.row -->
+                        </form>
+                    </div><!-- /.order box -->    
+
+            <div id="back_to_profile">
+              <a href="/#/profile">Back to profile page</a>
+            </div> 
+
+<!-- Previous Past Meal HTML -->
+     <!--  <h1>Add a past meal</h1>
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
@@ -252,7 +669,7 @@
 
       <div id="back_to_profile">
         <a href="/#/profile">Back to profile page</a>
-      </div>
+      </div> -->
     </div>
 
      <div class="modal fade" id="addPMeal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -351,6 +768,77 @@
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
+
+
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+
+      <h2 class="page-title text-md-center">Recipe Page</h2>
+      <p class="page-subtitle text-md-center">Insert Explanation of Recipes Here:, <strong>consectetur</strong> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim</p>
+
+
+      <div class="row product-detail">
+          <div class="col-md-6">
+              <div class="panel-group" id="product-detail-accordion">
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                          <h3 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#product-detail-accordion" href="#collapseDescription">
+                                  Recipes
+                                  <span data-icon="&#x50;" class="expand pull-right"></span>
+                                  <span data-icon="&#x4f;" class="contract pull-right"></span>
+                              </a>
+                          </h3><!-- /.panel-title -->
+                      </div><!-- /.panel-heading -->
+                      <div id="collapseDescription" class="panel-collapse collapse in">
+                          <div class="panel-body">
+                              <ul class="list-kybully uppercase">
+                                <p>Recipe List</p>
+                                <p id = "recipeList">
+                                  <li class = "recipeListThumbnail" v-for="recipe in currentUser.recipes">{{ recipe.name }}<a v-bind:href="'/#/recipe_detail/' + recipe.yumID" ><img class="pull-right" id ="recipe_thumbnail" v-bind:src="recipe.image_url"></a></li><br>
+                                </p>
+                              </ul>
+                          </div><!-- /.panel-body -->
+                      </div><!-- /.panel-collapse -->
+                  </div><!-- /.panel-default -->
+                 
+              </div><!-- /.panel-group -->            
+          </div>
+
+          <div class="col-md-6">
+              <h3 class="section-title text-md-center">Generate a Recipe</h3>
+              <div class="order-box">
+                  <form role="form">
+                      <div class="row">
+                          <div class="col-md-7 col-sm-7 col-xs-12">
+                              <div class="form-group clearfix">
+                                  <div class="row">
+                                      <div class="col-md-16">
+                                          <div id="requirementSelect">
+                                                  Press the button below to generate a recipe. Click on the recipes in the list to the left to view more details about the recipe. 
+                                          </div>
+                                      </div><!-- /.col -->
+                                  </div><!-- /.row -->
+                              </div><!-- /.form-group -->
+                              
+                          </div><!-- /.col-md-7 -->
+
+                          <div class="col-md-7 col-sm-7 col-xs-12">
+                              <div class="form-group form-actions">
+                                <a class="btn btn-primary" data-toggle="modal" data-target="#addPMeal">Generate Recipe</a>
+                              </div>
+                          </div><!-- /.col-md-7 -->
+
+                      </div><!-- /.row -->
+                  </form>
+              </div><!-- /.order box -->    
+
+      <div id="back_to_profile">
+        <a href="/#/profile">Back to profile page</a>
+      </div>  
+      <!-- Old Generate Recipe -->
+      <!-- 
       <div class="form-group">
         <label>User:</label>
         <div>{{currentUser.username}}</div>
@@ -369,7 +857,7 @@
 
       <div id="back_to_profile">
         <a href="/#/profile">Back to profile page</a>
-      </div>
+      </div> -->
 
     </div>
 
@@ -384,21 +872,91 @@
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
-      <div class="form-group">
-        <label>User:</label>
-        <div>{{currentUser.username}}</div>
-      </div>
 
-      <p>Recipe Details</p>
-      <p>{{recipe.name}}</p>
-      <button type="button" v-on:click="generate_recipe()">
-        Generate a recipe
-      </button>
+            <ul>
+              <li class="text-danger" v-for="error in errors">{{ error }}</li>
+            </ul>
 
-      <div id="back_to_profile">
-        <a href="/#/profile">Back to profile page</a>
-      </div>
+            <h2 class="page-title text-md-center">Detail</h2>
 
+            <div class="row product-detail">
+                <div class="col-md-6">
+                    <div class="panel-group" id="product-detail-accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#product-detail-accordion" href="#collapseDescription">
+                                        Info
+                                        <span data-icon="&#x50;" class="expand pull-right"></span>
+                                        <span data-icon="&#x4f;" class="contract pull-right"></span>
+                                    </a>
+                                </h3><!-- /.panel-title -->
+                            </div><!-- /.panel-heading -->
+                            <div id="collapseDescription" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <ul class="list-kybully uppercase">
+                                      <p id = "recipeList">
+                                        <li>Cooking time: {{recipe.body.totalTime}}</li>
+                                        <li>Serving Size: {{recipe.body.numberOfServings}}</li>
+<!--                                         <li>Cuisine: {{recipe.body.attributes.cuisine[0]}}</li>
+ -->                                        <a v-bind:href="recipe.body.attribution.url" ><li>Source: {{recipe.body.attribution.text}}</li></a>
+
+                                      </p>
+                                    </ul>
+                                </div><!-- /.panel-body -->
+                            </div><!-- /.panel-collapse -->
+                        </div><!-- /.panel-default -->
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#product-detail-accordion" href="#collapseShipping" class="collapsed">
+                                        Ingredients
+                                        <span data-icon="&#x50;" class="expand pull-right"></span>
+                                        <span data-icon="&#x4f;" class="contract pull-right"></span>
+                                    </a>
+                                </h3><!-- /.panel-title -->
+                            </div><!-- /.panel-heading -->
+                            <div id="collapseShipping" class="panel-collapse collapse">
+                                    <ul class="list-kybully uppercase">
+                                      <p id = "recipeList">
+                                        <li class="text-danger" v-for="ing in recipe.body.ingredientLines">{{ ing }}</li>
+                                      </p>
+                                    </ul>
+                            </div><!-- /.panel-collapse -->
+                        </div><!-- /.panel-default -->
+                       
+                    </div><!-- /.panel-group -->    
+
+                </div>
+
+                <div class="col-md-6">
+                    <h3 class="section-title text-md-center">{{recipe.body.name}}</h3>
+                    <div class="order-box">
+                        <form role="form">
+                            <div class="row">
+                                <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <div class="form-group clearfix">
+                                        <div class="row">
+                                            <div class="col-md-16">
+                                                <div id="requirementSelect">
+                                                  <img v-bind:src="recipe.body.images[0].hostedLargeUrl">
+                                                </div>
+                                            </div><!-- /.col -->
+                                        </div><!-- /.row -->
+                                    </div><!-- /.form-group -->
+                                    
+                                </div><!-- /.col-md-7 -->
+
+                               
+
+                            </div><!-- /.row -->
+                        </form>
+                    </div><!-- /.order box -->    
+
+            <div id="back_to_profile">
+              <a href="/#/generate_recipe">Back to Your Recipe List</a>
+            </div>         
     </div>
 
   </div>

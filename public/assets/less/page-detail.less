@@ -1,0 +1,165 @@
+/*===================================================================================*/
+/*  Detail Page
+/*===================================================================================*/
+.product-carousel{
+
+	.left{
+		@media (max-width: @screen-sm-min) {
+			margin-left: -35px;
+		}
+	}
+
+	.right{
+		@media (max-width: @screen-sm-min) {
+			margin-right: -35px;
+		}	
+	}
+	
+	.carousel-control{
+		color: #ccc;
+		position: relative;
+		width: 100%;
+		font-size: 120px;
+		display: block;
+		margin-top: 80%;
+		
+		@media (max-width: @screen-sm-min) {
+			margin-top: 0;
+			position: inherit;
+			font-size: 72px;
+		}
+
+
+
+		&:hover,
+		&:focus,
+		&:active{
+			color: darken(#ccc, 15%);
+		}
+
+		&.left,
+		&.right{
+			background-image: none;
+			opacity: 1;
+			text-shadow: none;
+		}
+	}
+}
+
+.product-detail{
+	margin-top: 70px;
+}
+
+.product-carousel{
+	margin-top: 50px;
+}
+
+#product-detail-accordion{
+	.panel-body{
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+
+	@media (max-width: @screen-sm-min) {
+		margin-bottom: 20px;
+	}
+}
+
+.panel{
+	border-radius: 0;
+}
+
+.panel-body{
+	line-height: 30px;
+}
+
+.panel-default{
+	border: none;
+	box-shadow: none;
+	
+	> .panel-heading{
+		background-color: #FFF;
+		padding: 29px 38px;
+		border: 2px solid #d7d7d7;
+
+		.panel-title{
+			font-size: 30px;
+			line-height: 30px;
+			text-transform: uppercase;
+			font-weight: bold;
+
+			> a{
+				&,
+				&:hover,
+				&:focus,
+				&:active{
+					text-decoration: none;
+					display: block;
+
+					.contract{
+						display: inline;
+						margin-top: -5px;
+					}
+
+					.expand{
+						display: none;
+						margin-top: -5px;
+					}
+				}
+
+				&.collapsed{
+					
+					.contract{
+						display: none;
+						margin-top: -5px;
+					}
+
+					.expand{
+						display: inline;
+						margin-top: -5px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.order-box{
+	padding: 48px;
+	background-color: #333;
+
+	@media (max-width: @screen-sm-min) {
+		padding: 25px;
+	}
+
+	.control-label{
+		text-transform: uppercase;
+		color: #FFF;
+		font-size: 18px;
+		line-height: 20px;
+		margin-top: 0;
+	}
+
+	.btn-wishlist{
+		background-color: transparent;
+		border-color: transparent;
+	}
+
+	p{
+		line-height: 30px;
+		font-size: 18px;
+		text-transform: uppercase;
+	}
+
+	.selectpicker{
+		border-width: 2px;
+		font-size: 18px;
+		line-height: 20px;
+		color: #999;
+		padding: 15px;
+	}
+
+	.form-actions{
+		margin-top: 12px;
+	}
+}

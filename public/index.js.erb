@@ -221,8 +221,7 @@ var PastMealPage = {
           id: id
         }
         axios.delete("http://localhost:3000/past_meal", params).then(function(response){
-
-
+            console.log(response.data)
         }.bind(this)).catch(function(error){
          console.log(error);
          this.errors = error.response.data.errors; 
@@ -350,7 +349,7 @@ var RecipePage = {
           this.updateUser();
     },
     sortNumber: function(a,b) {
-    return a - b;
+      return a - b;
     },
     sortNutrtionalDebt: function(userNData, modifier,){
       var debtValues = [];
@@ -481,8 +480,7 @@ var RecipePage = {
           id: id
         }
         axios.delete("http://localhost:3000/recipe", params).then(function(response){
-
-
+            console.log(response.data)
         }.bind(this)).catch(function(error){
          console.log(error);
          this.errors = error.response.data.errors; 
@@ -498,7 +496,7 @@ var RecipeDetailPage = {
   data: function() {
     return {
       currentUser: {username: "Loading", recipes: []},
-      recipe: {},
+      recipe: {name: "loading"},
       id: "",
       errors: []
 
@@ -512,22 +510,7 @@ var RecipeDetailPage = {
         .then(function(response) {
           console.log(response.data);
           this.currentUser = response.data.current_user;
-        }.bind(this)
-        ).catch(
-          function(error) {
-            this.errors = error.response.data.errors;
-          }.bind(this)
-        );
-
-        var params = {
-          id: this.id
-        }
-        console.log(params);
-        axios
-        .get("http://localhost:3000/nutritional_data/recipe_details", {params: params})
-        .then(function(response) {
-          console.log(response.data);
-          this.recipe = response.data;
+          this.getRecipe();
         }.bind(this)
         ).catch(
           function(error) {
@@ -538,7 +521,22 @@ var RecipeDetailPage = {
 
   },
   methods: {
-    
+    getRecipe: function(){
+      var params = {
+        id: this.id
+      }
+      axios
+      .get("http://localhost:3000/nutritional_data/recipe_details", {params: params})
+      .then(function(response) {
+        console.log(response.data);
+        this.recipe = response.data;
+      }.bind(this)
+      ).catch(
+        function(error) {
+          this.errors = error.response.data.errors;
+        }.bind(this)
+      );
+    }
   },
   computed: {}
 };
@@ -653,6 +651,11 @@ var router = new VueRouter({
 var app = new Vue({
   el: "#vue-app",
   router: router,
+  watch: {
+      '$route': function() {
+        window.location.reload();
+      }
+    },
   created: function() {
     var jwt = localStorage.getItem("jwt");
     if (jwt) {

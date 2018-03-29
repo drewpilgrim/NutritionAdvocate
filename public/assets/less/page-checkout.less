@@ -1,0 +1,183 @@
+/*===================================================================================*/
+/*  Checkout Page
+/*===================================================================================*/
+.checkout-form{
+	font-size: 18px;
+	line-height: 24px;
+
+	label{
+		font-size: 18px;
+		line-height: 24px;
+		color: #666;
+	}
+	
+	.control-label{
+		font-weight: bold;
+		text-transform: uppercase;
+		color: #666;
+	}
+
+	.form-control{
+		border-color: #d7d7d7;
+		border-width: 2px;
+		box-shadow: none;
+		padding: 15px 25px;
+		height: auto;
+		.placeholder(#ccc);
+		color: #666;
+	}
+
+	.form-group{
+		margin-bottom: 20px;
+	}
+
+	.table-delivery-option{
+		tbody{
+			tr{
+				td{
+					padding: 30px 0;
+				}
+			}
+		}
+
+		.media{
+			display: block;
+			color: #666;
+
+			&:hover{
+				color: darken(#666, 12%);
+				text-decoration: none;
+			}
+
+			.media-heading{
+				text-transform: uppercase;
+				font-weight: bold;
+			}
+		}
+	}
+
+	.payment_module{
+		border: 2px solid #d7d7d7;
+		padding: 20px;
+
+		label{
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+	}
+
+	.form-actions{
+		margin-top: 20px;
+	}
+}
+
+.required{
+	&:after{
+		content: " *";
+		color: #cc0000;
+	}
+}
+
+.table-order-summary{
+	tbody{
+		tr{
+			th{
+				text-transform: uppercase;
+				border-width: 5px;
+				border-color: #f5f5f5;
+				color: @headings-text-color;
+			}
+
+			td{
+				border-width: 5px;
+				border-color: #f5f5f5;				
+			}
+		}
+	}
+}
+
+.order-steps{
+	> li{
+
+		> a{
+			font-size: 18px;
+			line-height: 24px;
+			color: @headings-text-color;
+			padding-top: 20px;
+
+			&:hover{
+				color: #000;
+				background-color: transparent;
+				text-decoration: none;
+			}
+		}
+
+		&:first-child{
+			&:before{
+				
+			}
+
+			&:after{
+				left: 50%;
+			}
+		}
+
+		&:last-child{
+			&:before{
+				
+			}
+
+			&:after{
+				right: 50%;
+			}
+		}
+
+		&:before{
+			content: "";
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			display: block;
+			margin: 10px auto;
+		}
+
+		&:after{ 
+			content: "";
+			display: block;
+			top: -70px;
+			position: relative;
+
+			@media (max-width: @screen-sm-min) {
+				border-top: none;
+			}
+		}
+	}
+
+	> li.active{
+		
+		&:before{
+			content: "";
+			width: 33px;
+			height: 33px;
+			.box-shadow(~"0 0 15px rgba(0,0,0,.05), 0 5px 2px rgba(0,0,1,.05)");
+			background-color: #FFF;
+			border: 3px solid #e5e5e5;
+			display: block;
+			border-radius: @baseLineHeight;
+			position: relative;
+			top: 10px;
+			z-index: 9;
+		}
+
+		> a{
+			background-color: transparent;
+			color: @headings-text-color;
+
+			&:hover{
+				color: #000;
+				background-color: transparent;
+				text-decoration: none;
+			}
+		}
+	}
+}
