@@ -45,7 +45,30 @@ var ProfilePage = {
   data: function() {
     return {
       currentUser: null,
-      errors: []
+      debt: {},
+      nutritionalData: {
+       
+      },
+      userNData: {
+        k: 0.0,
+        na: 0.0,
+        chole: 0.0,
+        fatrn: 0.0,
+        fasat: 0.0,
+        chocdf: 0.0,
+        fibtg: 0.0,
+        procnt: 0.0,
+        vitc: 0.0,
+        ca: 0.0,
+        fe: 0.0,
+        sugar: 0.0,
+        enerc_kcal: 0.0,
+        fat: 0.0,
+        vita_iu: 0.0,
+      },
+      keyData: [[],[],[]],
+      errors: [],
+
     };
   },
   created: function() {
@@ -54,6 +77,25 @@ var ProfilePage = {
         .then(function(response) {
           console.log(response.data);
           this.currentUser = response.data.current_user;
+          //Nutrtion Data: Not Working
+          // axios
+          //   .get("/nutritional_data")
+          //   .then(function(response) {
+          //     //Age (Todo) and Gender selection
+          //     if(this.currentUser.gender === "m"){
+          //       this.nutritionalData = response.data[0];
+          //     }else{
+          //       this.nutritionalData = response.data[1];
+          //     }
+          //     this.currentDebts();
+
+          //   }.bind(this)
+          //   ).catch(
+          //     function(error) {
+          //       this.errors = error.response.data.errors;
+          //     }.bind(this)
+          //   );
+
         }.bind(this)
         ).catch(
           function(error) {
@@ -61,9 +103,49 @@ var ProfilePage = {
           }.bind(this)
         );
     
+        //Get Nutrtional Data
 
   },
   methods: {
+    sortNutrtionalDebt: function(userNData, modifier,){
+      var debtValues = [];
+      var nKeys = {};
+      for (var key in userNData){
+        var recommended = this.nutritionalData[key];
+        var current = userNData[key] * modifier
+        var debt = recommended - current;
+        if(debt > 0){
+          debtValues.push(debt);
+          nKeys[debt] = key;
+        }
+      }
+      console.log("Pre Sorted DebtValues");
+      console.log(debtValues);
+
+      debtValues = debtValues.sort(this.sortNumber);
+      var ret = {};
+      //Logic: If seed > 2* length add top two debts and random other. If seed > length add top debt and random other. Otherwise add random debt.
+      console.log("DebtValues");
+      console.log(debtValues);
+
+      var length = debtValues.length;
+      var seed = Math.floor(Math.random()*Math.floor(length * 3));
+      if (seed > length*2) {
+        ret[nKeys[debtValues[length-2]]] = debtValues[length-2];
+      }
+      if (seed > length){
+        ret[nKeys[debtValues[length-1]]] = debtValues[length-1];
+      }
+
+      var keySeed = Math.floor(Math.random()*Math.floor(length));
+      ret[nKeys[debtValues[keySeed]]] = debtValues[keySeed];      
+  
+      return ret;
+
+
+
+
+    },
     updateUser: function(){
       axios
         .get("/users")
@@ -76,7 +158,31 @@ var ProfilePage = {
             this.errors = error.response.data.errors;
           }.bind(this)
         );
+    },
+    currentDebts: function(){
+      var modifier = 1;
+      for (var i = 0; i < this.currentUser.past_meals.length; i++) {
+        for (var key in this.currentUser.past_meals[0]) {
+          this.userNData[key] += this.currentUser.past_meals[i][key];
+        }
+      }
+
+      //Get the Most Needed Nutritional Keys
+      modifier = this.nutritionalData["enerc_kcal"]/this.userNData["enerc_kcal"];
+      var sortedKeys = this.sortNutrtionalDebt(this.userNData, modifier)
+      var index = 0;
+      for (var key in sortedKeys){
+        if(index < 3){
+          keyData[index][0] = this.nutritionalData[key];
+          keyData[index][1] = this.userNData[key] * modifier
+          keyData[index][2] = recommended - current;
+          index += 1;
+        }
+        console.log(keyData);
+      }
+
     }
+
   },
   computed: {}
 };
@@ -201,20 +307,19 @@ var PastMealPage = {
           axios.get("/past_meals")
             .then(function(response) {
               console.log(response.data);
+              this.updateUser();
             }.bind(this)
             ).catch(
               function(error) {
                 this.errors = error.response.data.errors;
               }.bind(this)
             );
-
         })
         .catch(
           function(error) {
             this.errors = error.response.data.errors;
           }.bind(this)
         );
-        this.updateUser();
     },
     delete_past_meal: function(id){
         params = {
@@ -294,7 +399,6 @@ var RecipePage = {
             this.errors = error.response.data.errors;
           }.bind(this)
         );
-
     
 
   },
@@ -338,15 +442,13 @@ var RecipePage = {
       axios
           .post("/recipes",recipeParams)
           .then(function(response) {
-            console.log("Recipe Created")
-            console.log(response.data);
+            this.updateUser();
           }.bind(this)
           ).catch(
             function(error) {
               this.errors = error.response.data.errors;
             }.bind(this)
           );
-          this.updateUser();
     },
     sortNumber: function(a,b) {
       return a - b;

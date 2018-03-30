@@ -33,7 +33,7 @@ PastMeal.create({na: 0.002, fatrn: 0, fasat: 0, chocdf: 0, fibtg: 4, procnt: 0, 
 
 PastMeal.create({na: 0.002, fatrn: 0, fasat: 0, chocdf: 0, fibtg: 4, procnt: 0, vitc: 0.0063, ca: 0.01, fe: 0.00018, sugar: 19, enerc_kcal: 95, fat: 0, vita_iu:0.000018, k: 0, chole: 0, name: "Apple", user_id: 1})
 
-PastMeal.create({na: .6912, fatrn: .9, fasat: 1.5, chocdf: 20.7, fibtg: 5.8, procnt: 0, vitc: 0.00483, ca: 0.01, fe: 0.00018, sugar: 5.2, enerc_kcal: 127.2, fat: 0, vita_iu:0.0000213, k: .612, chole: .0048, name: "Minestrone", user_id: 1})
+PastMeal.create({na: 0.6912, fatrn: 0.9, fasat: 1.5, chocdf: 20.7, fibtg: 5.8, procnt: 0, vitc: 0.00483, ca: 0.01, fe: 0.00018, sugar: 5.2, enerc_kcal: 127.2, fat: 0, vita_iu:0.0000213, k: 0.612, chole: 0.0048, name: "Minestrone", user_id: 1})
 
 
 
